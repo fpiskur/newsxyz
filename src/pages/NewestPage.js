@@ -32,7 +32,7 @@ class NewestPage extends Component {
     let {articles, isLoaded} = this.state;
 
     return !isLoaded
-    ? <div className="text-center" style={{ marginTop: 'calc(100vh / 2 - 3em)' }}>Loading...</div>
+    ? <div className="text-center mb-5" style={{ marginTop: 'calc(25vh - 3em)' }}>Loading...</div>
     : (
       <div className="container">
 

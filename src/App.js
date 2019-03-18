@@ -12,19 +12,18 @@ class App extends Component {
   render() {
 
     return (
-      <div style={{ height: '100vh' }}>
+      <div className="pt-4">
         <Switch>
-          <div className="py-4">
-
+          <div>
             <Route exact path="/" component={SearchPage} />
             <Route exact path="/headlines" component={HeadlinesPage} />
             <Route path={"/headlines/:article"} render={(props) => (
               <SingleArticle {...props} />
             )} />
             <Route exact path="/newest" component={NewestPage} />
-
           </div>
         </Switch>
+
         <Footer />
       </div>
     );

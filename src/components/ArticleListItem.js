@@ -30,7 +30,7 @@ class ArticleListItem extends Component {
 
     return (
       <div key={article.title} className="row py-3 border-bottom">
-        <div className="col-5 d-flex">
+        <div className="col-12 col-md-5 d-flex mb-1 mb-md-0">
           <Link
             to={`/headlines/${this.slugify(article.title)}`}
             target="_blank"
@@ -38,11 +38,11 @@ class ArticleListItem extends Component {
             <img src={article.urlToImage} className="w-100" alt={article.title} />
           </Link>
         </div>
-        <div className="col-7">
+        <div className="col-12 col-md-7">
           <div className="row text-muted mb-2">
-            <div className="col-6"><small>SOURCE:</small>
+            <div className="col-8"><small>SOURCE:</small>
             &nbsp;{article.source.name}</div>
-            <div className="col-6 d-flex justify-content-end align-items-baseline">{articleDate.toLocaleDateString('hr-HR')}</div>
+            <div className="col-4 d-flex justify-content-end align-items-baseline">{articleDate.toLocaleDateString('hr-HR')}</div>
           </div>
           <h2 className="h5">
             <Link
@@ -53,7 +53,7 @@ class ArticleListItem extends Component {
             </Link>
           </h2>
           <p>{article.description}</p>
-          <div className="row mb-3">
+          <div className="row mb-md-3">
             <div className="col-12 d-flex justify-content-end">{article.author
               ? 'by ' + article.author
               : 'No author specified'}
