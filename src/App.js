@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Switch, Route } from 'react-router-dom';
+import SingleArticle from './components/SingleArticle.js';
+import Footer from './components/Footer.js';
 
 import SearchPage from './pages/SearchPage.js';
 import HeadlinesPage from './pages/HeadlinesPage.js';
@@ -10,16 +12,21 @@ class App extends Component {
   render() {
 
     return (
-      <Router>
-        <div className="py-4">
+      <div style={{ height: '100vh' }}>
+        <Switch>
+          <div className="py-4">
 
-          <Route exact path="/" component={SearchPage} />
-          <Route exact path="/headlines" component={HeadlinesPage} />
-          
-          <Route exact path="/newest" component={NewestPage} />
+            <Route exact path="/" component={SearchPage} />
+            <Route exact path="/headlines" component={HeadlinesPage} />
+            <Route path={"/headlines/:article"} render={(props) => (
+              <SingleArticle {...props} />
+            )} />
+            <Route exact path="/newest" component={NewestPage} />
 
-        </div>
-      </Router>
+          </div>
+        </Switch>
+        <Footer />
+      </div>
     );
   }
 }

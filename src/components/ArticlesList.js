@@ -9,7 +9,7 @@ class ArticlesList extends Component {
 
     return (
       articles.map(article => (
-          <ArticleListItem key={article.title} article={article} />
+        <ArticleListItem key={article.title} article={article} />
       ))
     );
     

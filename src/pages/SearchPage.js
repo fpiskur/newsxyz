@@ -7,16 +7,13 @@ class SearchPage extends Component {
     articles: []
   }
 
-  componentDidMount() {
-    
-  }
-
   render() {
 
     return (
       <div className="container">
 
-        <TopBar heading="Search articles" />
+        <TopBar />
+        <h2 className="text-center mb-3">Search articles</h2>
 
       </div>
     );

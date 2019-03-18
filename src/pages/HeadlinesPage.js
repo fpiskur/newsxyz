@@ -32,14 +32,12 @@ class HeadlinesPage extends Component {
     let {articles, isLoaded} = this.state;
 
     return !isLoaded
-    
     ? <div className="text-center" style={{ marginTop: 'calc(100vh / 2 - 3em)' }}>Loading...</div>
-
     : (
       <div className="container">
 
-        <TopBar heading="Headlines" />
-
+        <TopBar />
+        <h2 className="text-center mb-3">Headlines</h2>
         <ArticlesList articles={articles} />
 
       </div>

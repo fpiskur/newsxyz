@@ -1,13 +1,7 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
-import SingleArticle from './SingleArticle.js';
+import { Link } from 'react-router-dom';
 
 class ArticleListItem extends Component {
-
-  // linkNewTab = () => {
-  //   let article = this.props.article;
-  //   window.open(article.url, '_blank');
-  // }
 
   // Stolen from https://gist.github.com/hagemann/382adfc57adbd5af078dc93feef01fe1
   slugify(string) {
@@ -25,6 +19,10 @@ class ArticleListItem extends Component {
         .replace(/-+$/, '') // Trim - from end of text
   }
 
+  setLocalStorage(article) {
+    localStorage.setItem(0, JSON.stringify(article));
+  }
+
   render() {
 
     let {article} = this.props;
@@ -32,17 +30,27 @@ class ArticleListItem extends Component {
 
     return (
       <div key={article.title} className="row py-3 border-bottom">
-        <div className="col-5">
-          <img src={article.urlToImage} className="figure-img w-100" alt={article.title} />
+        <div className="col-5 d-flex">
+          <Link
+            to={`/headlines/${this.slugify(article.title)}`}
+            target="_blank"
+            onClick={() => this.setLocalStorage(article)}>
+            <img src={article.urlToImage} className="w-100" alt={article.title} />
+          </Link>
         </div>
         <div className="col-7">
           <div className="row text-muted mb-2">
-            <div className="col-6">{articleDate.toLocaleDateString('hr-HR')}</div>
-            <div className="col-6 d-flex justify-content-end align-items-baseline"><small>SOURCE:</small>
+            <div className="col-6"><small>SOURCE:</small>
             &nbsp;{article.source.name}</div>
+            <div className="col-6 d-flex justify-content-end align-items-baseline">{articleDate.toLocaleDateString('hr-HR')}</div>
           </div>
           <h2 className="h5">
-            <Link to={`headlines/${this.slugify(article.title)}`}>{article.title}</Link>
+            <Link
+              to={`/headlines/${this.slugify(article.title)}`}
+              target="_blank"
+              onClick={() => this.setLocalStorage(article)}>
+              {article.title}
+            </Link>
           </h2>
           <p>{article.description}</p>
           <div className="row mb-3">
@@ -51,11 +59,7 @@ class ArticleListItem extends Component {
               : 'No author specified'}
             </div>
           </div>
-          {/* <button type="button" className="btn btn-link" onClick={this.linkNewTab}>Go to original article</button> */}
         </div>
-        <Route path={"headlines/:article"} render={(props) => (
-          <SingleArticle {...props} />
-        )} />
       </div>
     );
     
