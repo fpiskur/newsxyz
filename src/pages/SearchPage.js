@@ -67,6 +67,8 @@ class SearchPage extends Component {
           </div>
         </form>
 
+        <hr />
+
         { notFound
           ? <div className="row mb-3"><div className="col-12">No articles found.</div></div>
           : <ArticlesList articles={articles} />

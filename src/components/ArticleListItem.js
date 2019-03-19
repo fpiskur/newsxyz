@@ -29,7 +29,7 @@ class ArticleListItem extends Component {
     let articleDate = new Date(article.publishedAt);
 
     return (
-      <div key={article.title} className="row py-3 border-bottom">
+      <div key={article.title} className="row py-3 border-bottom list-item">
         <div className="col-12 col-md-5 d-flex mb-1 mb-md-0">
           <Link
             to={`/headlines/${this.slugify(article.title)}`}
