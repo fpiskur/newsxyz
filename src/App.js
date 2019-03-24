@@ -12,9 +12,9 @@ class App extends Component {
   render() {
 
     return (
-      <div className="pt-4">
+      <div className="pt-4 wrapper">
         <Switch>
-          <div>
+          <div className="content-body">
             <Route exact path="/" component={SearchPage} />
             <Route exact path="/headlines" component={HeadlinesPage} />
             <Route path={"/headlines/:article"} render={(props) => (

@@ -9,7 +9,7 @@ class Footer extends Component {
   render() {
 
     return (
-      <div className="mt-3" style={{ backgroundColor: '#DADADA' }}>
+      <div className="footer">
         <div className="container">
           <p className="m-0 py-2 text-center">Powered by&nbsp;
             <button
